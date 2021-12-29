@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class StartMenuUIHandler : MonoBehaviour
 {
+    public TMP_InputField inputField;
+    public string playerName;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,8 @@ public class StartMenuUIHandler : MonoBehaviour
 
     public void StartNew()
     {
+        playerName = inputField.text;
+        DataManager.Instance.playerName = playerName;
         SceneManager.LoadScene(1);
     }
 
